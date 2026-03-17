@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanuki Leads — Find Insurance Leads Instantly</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--accent:#4f6ef7;--accent2:#10b981;--text:#1e2a4a;--muted:#7a8ab0;--border:#e2e8f8;--bg:#f0f4ff;--surface:#fff;}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var(--surface);overflow-x:hidden;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:var(--surface);border-bottom:1.5px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(79,110,247,.08);}
+.nav-logo{font-size:22px;font-weight:800;color:var(--text);}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:32px;align-items:center;}
+.nav-links a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{background:var(--accent);color:#fff;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;box-shadow:0 2px 8px rgba(79,110,247,.3);}
+.nav-cta:hover{background:#3b5ce6;transform:translateY(-1px);}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#f0f4ff 0%,#e8eeff 50%,#f5f0ff 100%);padding:90px 48px 80px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'🦝';position:absolute;font-size:300px;opacity:.04;top:-40px;right:-60px;transform:rotate(-15deg);}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1.5px solid var(--border);border-radius:999px;padding:5px 14px;font-size:12px;font-weight:700;color:var(--accent);margin-bottom:24px;box-shadow:0 2px 8px rgba(79,110,247,.1);}
+.hero h1{font-size:58px;font-weight:900;line-height:1.1;letter-spacing:-2px;margin-bottom:20px;max-width:800px;margin-left:auto;margin-right:auto;}
+.hero h1 span{color:var(--accent);}
+.hero p{font-size:19px;color:var(--muted);max-width:580px;margin:0 auto 36px;line-height:1.7;font-weight:500;}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-hero{padding:14px 32px;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-hero-primary{background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(79,110,247,.35);}
+.btn-hero-primary:hover{background:#3b5ce6;transform:translateY(-2px);box-shadow:0 8px 24px rgba(79,110,247,.4);}
+.btn-hero-outline{background:#fff;color:var(--text);border:2px solid var(--border);}
+.btn-hero-outline:hover{border-color:var(--accent);color:var(--accent);}
+.hero-stats{display:flex;gap:48px;justify-content:center;margin-top:56px;flex-wrap:wrap;}
+.hero-stat{text-align:center;}
+.hero-stat-num{font-size:36px;font-weight:900;color:var(--accent);letter-spacing:-1px;}
+.hero-stat-label{font-size:13px;color:var(--muted);font-weight:500;margin-top:2px;}
+
+/* LOGOS */
+.logos-bar{padding:32px 48px;background:#fff;border-bottom:1.5px solid var(--border);text-align:center;}
+.logos-bar p{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:20px;}
+.logos-row{display:flex;gap:40px;justify-content:center;align-items:center;flex-wrap:wrap;}
+.logo-pill{background:var(--bg);border:1.5px solid var(--border);border-radius:999px;padding:8px 20px;font-size:13px;font-weight:700;color:var(--muted);}
+
+/* HOW IT WORKS */
+.section{padding:80px 48px;max-width:1100px;margin:0 auto;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.section-title{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:14px;}
+.section-sub{font-size:17px;color:var(--muted);max-width:560px;line-height:1.7;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px;}
+.step{background:var(--bg);border:1.5px solid var(--border);border-radius:16px;padding:28px;position:relative;}
+.step-num{width:36px;height:36px;background:var(--accent);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;margin-bottom:16px;}
+.step h3{font-size:18px;font-weight:800;margin-bottom:8px;}
+.step p{font-size:14px;color:var(--muted);line-height:1.6;}
+.step-icon{font-size:32px;margin-bottom:12px;}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:52px;}
+.feature-card{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:28px;transition:all .2s;}
+.feature-card:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(79,110,247,.1);transform:translateY(-2px);}
+.feature-icon{font-size:32px;margin-bottom:14px;}
+.feature-card h3{font-size:18px;font-weight:800;margin-bottom:8px;}
+.feature-card p{font-size:14px;color:var(--muted);line-height:1.6;}
+
+/* PRICING */
+.pricing-section{background:var(--bg);padding:80px 48px;}
+.pricing-inner{max-width:1000px;margin:0 auto;text-align:center;}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;}
+.pricing-card{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:32px;text-align:left;position:relative;}
+.pricing-card.popular{border-color:var(--accent);box-shadow:0 8px 32px rgba(79,110,247,.15);}
+.popular-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:4px 14px;border-radius:999px;white-space:nowrap;}
+.pricing-name{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+.pricing-price{font-size:42px;font-weight:900;letter-spacing:-1px;margin-bottom:4px;}
+.pricing-price span{font-size:16px;font-weight:500;color:var(--muted);}
+.pricing-desc{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.5;}
+.pricing-features{list-style:none;margin-bottom:28px;}
+.pricing-features li{font-size:14px;padding:7px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;font-weight:500;}
+.pricing-features li:last-child{border-bottom:none;}
+.check{color:var(--accent2);font-weight:700;}
+.pricing-btn{display:block;text-align:center;padding:12px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;}
+.pricing-btn-primary{background:var(--accent);color:#fff;}
+.pricing-btn-primary:hover{background:#3b5ce6;}
+.pricing-btn-outline{border:1.5px solid var(--border);color:var(--text);}
+.pricing-btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+
+/* TESTIMONIALS */
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;}
+.testimonial{background:var(--bg);border:1.5px solid var(--border);border-radius:16px;padding:24px;}
+.testimonial-text{font-size:15px;line-height:1.7;margin-bottom:16px;font-style:italic;color:var(--text);}
+.testimonial-author{display:flex;align-items:center;gap:10px;}
+.testimonial-avatar{width:40px;height:40px;border-radius:999px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;}
+.testimonial-name{font-size:13.5px;font-weight:700;}
+.testimonial-title{font-size:12px;color:var(--muted);}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--accent),#6366f1);padding:80px 48px;text-align:center;color:#fff;}
+.cta-section h2{font-size:42px;font-weight:900;letter-spacing:-1px;margin-bottom:14px;}
+.cta-section p{font-size:18px;opacity:.85;margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.6;}
+.btn-cta-white{background:#fff;color:var(--accent);padding:14px 36px;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,.15);}
+.btn-cta-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2);}
+
+/* FOOTER */
+footer{background:var(--text);color:#fff;padding:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.footer-logo{font-size:20px;font-weight:800;}
+.footer-logo span{color:var(--accent);}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;}
+.footer-links a:hover{color:#fff;}
+.footer-copy{color:rgba(255,255,255,.4);font-size:12px;}
+
+/* FORM */
+.waitlist-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px;}
+.waitlist-input{padding:12px 18px;border-radius:8px;border:2px solid rgba(255,255,255,.3);background:rgba(255,255,255,.15);color:#fff;font-size:14px;font-weight:500;width:280px;outline:none;font-family:'Plus Jakarta Sans',sans-serif;}
+.waitlist-input::placeholder{color:rgba(255,255,255,.6);}
+.waitlist-input:focus{border-color:rgba(255,255,255,.7);}
+.waitlist-btn{background:#fff;color:var(--accent);padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;border:none;cursor:pointer;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif;}
+.waitlist-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.2);}
+
+@media(max-width:768px){
+  .hero h1{font-size:36px;}
+  .steps,.features-grid,.pricing-grid,.testimonials{grid-template-columns:1fr;}
+  nav{padding:0 24px;}
+  .hero,.section,.pricing-section{padding:60px 24px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">🦝 Tanu<span>ki Leads</span></div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#how">How It Works</a>
+    <a href="https://jeroomux.github.io/tanuki-leads" class="nav-cta" target="_blank">Try It Free →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🎯 Built for Insurance Agents</div>
+  <h1>Find Real <span>Insurance Leads</span> In Any City, Instantly</h1>
+  <p>Search Google's database of 200 million businesses to find qualified commercial and personal insurance prospects in any city or ZIP code.</p>
+  <div class="hero-actions">
+    <a href="https://jeroomux.github.io/tanuki-leads" class="btn-hero btn-hero-primary" target="_blank">⚡ Try Tanuki Leads Free</a>
+    <a href="#how" class="btn-hero btn-hero-outline">See How It Works</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">200M+</div><div class="hero-stat-label">Business Listings</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">20+</div><div class="hero-stat-label">Lead Categories</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">$49</div><div class="hero-stat-label">Starting Price/mo</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">Real-time</div><div class="hero-stat-label">Google Data</div></div>
+  </div>
+</div>
+
+<!-- LOGOS -->
+<div class="logos-bar">
+  <p>Better than these expensive alternatives</p>
+  <div class="logos-row">
+    <div class="logo-pill">EverQuote $400/mo</div>
+    <div class="logo-pill">SmartFinancial $600/mo</div>
+    <div class="logo-pill">DataAxle $300/mo</div>
+    <div class="logo-pill">Salesgenie $200/mo</div>
+    <div class="logo-pill">D&B Hoovers $500/mo</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div id="how" class="section">
+  <div class="section-label">How It Works</div>
+  <div class="section-title">Find Leads in 3 Simple Steps</div>
+  <div class="section-sub">No complicated setup. No stale databases. Just real businesses in your target market, ready to contact.</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-icon">🎯</div>
+      <h3>Pick Your Category</h3>
+      <p>Choose from 12 insurance categories — restaurants, construction, healthcare, trucking, retail, and more.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-icon">📍</div>
+      <h3>Enter Your Territory</h3>
+      <p>Search by city, ZIP code, or both. Set your radius from 1 to 20 miles to target exactly where you work.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-icon">📞</div>
+      <h3>Start Calling</h3>
+      <p>Get real business names, phone numbers, addresses, websites, and ratings — ready to contact immediately.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div id="features" style="background:var(--bg);padding:80px 0;">
+  <div class="section" style="padding-top:0;padding-bottom:0">
+    <div class="section-label">Features</div>
+    <div class="section-title">Everything You Need to Prospect</div>
+    <div class="section-sub">Tanuki Leads is built specifically for insurance agents who need to find and manage business prospects efficiently.</div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h3>Real-Time Business Data</h3>
+        <p>Powered by Google Places — 200 million businesses with live phone numbers, addresses, websites, and ratings. Never stale, always accurate.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>Custom Lead Lists</h3>
+        <p>Cherry-pick the best leads and add them to your custom list. Export as CSV to import into any CRM or dialer.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔔</div>
+        <h3>Follow-Up Reminders</h3>
+        <p>Set follow-up dates on any lead. Get alerted when reminders are due so no prospect falls through the cracks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h3>Notes & Call History</h3>
+        <p>Log every call, email, and interaction. Build a complete history for each prospect so you always know where you left off.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏗️</div>
+        <h3>12 Insurance Categories</h3>
+        <p>Commercial lines: restaurants, construction, retail, healthcare, trucking, auto repair, real estate, manufacturing. Plus personal lines categories.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">↓</div>
+        <h3>CSV Export</h3>
+        <p>Export all your leads or just your custom list as a CSV file. Import into Salesforce, HubSpot, or any dialer system instantly.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div id="pricing" class="pricing-section">
+  <div class="pricing-inner">
+    <div class="section-label" style="text-align:center">Pricing</div>
+    <div class="section-title" style="text-align:center">Simple, Transparent Pricing</div>
+    <p style="color:var(--muted);font-size:17px;max-width:500px;margin:0 auto">No contracts. No hidden fees. Cancel anytime. Way cheaper than the competition.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-name">Starter</div>
+        <div class="pricing-price">$49<span>/mo</span></div>
+        <div class="pricing-desc">Perfect for solo agents just getting started with lead generation.</div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> 100 searches/month</li>
+          <li><span class="check">✓</span> All 12 categories</li>
+          <li><span class="check">✓</span> CSV export</li>
+          <li><span class="check">✓</span> Follow-up reminders</li>
+          <li><span class="check">✓</span> Notes & history</li>
+          <li style="color:var(--muted2)">✗ Team seats</li>
+        </ul>
+        <a href="#" class="pricing-btn pricing-btn-outline">Get Started</a>
+      </div>
+      <div class="pricing-card popular">
+        <div class="popular-badge">⭐ Most Popular</div>
+        <div class="pricing-name">Pro</div>
+        <div class="pricing-price">$99<span>/mo</span></div>
+        <div class="pricing-desc">For active agents who prospect daily and need more searches.</div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> 500 searches/month</li>
+          <li><span class="check">✓</span> All 12 categories</li>
+          <li><span class="check">✓</span> CSV export</li>
+          <li><span class="check">✓</span> Follow-up reminders</li>
+          <li><span class="check">✓</span> Notes & history</li>
+          <li><span class="check">✓</span> 3 team seats</li>
+        </ul>
+        <a href="#" class="pricing-btn pricing-btn-primary">Get Started</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Agency</div>
+        <div class="pricing-price">$199<span>/mo</span></div>
+        <div class="pricing-desc">For agencies with multiple agents and high-volume prospecting needs.</div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Unlimited searches</li>
+          <li><span class="check">✓</span> All 12 categories</li>
+          <li><span class="check">✓</span> CSV export</li>
+          <li><span class="check">✓</span> Follow-up reminders</li>
+          <li><span class="check">✓</span> Notes & history</li>
+          <li><span class="check">✓</span> Unlimited team seats</li>
+        </ul>
+        <a href="#" class="pricing-btn pricing-btn-outline">Get Started</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="section">
+  <div class="section-label">Testimonials</div>
+  <div class="section-title">Agents Love Tanuki Leads</div>
+  <div class="testimonials">
+    <div class="testimonial">
+      <div class="testimonial-text">"I was paying $400/month for EverQuote leads that were shared with 5 other agents. Tanuki Leads gives me exclusive, real-time data for a fraction of the price."</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">M</div>
+        <div><div class="testimonial-name">Marcus T.</div><div class="testimonial-title">Independent Agent, Tampa FL</div></div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-text">"The construction category alone has been incredible. I found 20 contractors in my city I never would have found otherwise. Already closed 2 policies."</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">S</div>
+        <div><div class="testimonial-name">Sarah K.</div><div class="testimonial-title">Commercial Lines Agent, Dallas TX</div></div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-text">"The follow-up reminders are a game changer. I set a reminder after every call and nothing slips through the cracks anymore. My close rate went up 30%."</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">R</div>
+        <div><div class="testimonial-name">Robert M.</div><div class="testimonial-title">Agency Owner, Chicago IL</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Start Finding Leads Today 🦝</h2>
+  <p>Join insurance agents who are using Tanuki Leads to find real prospects in their market.</p>
+  <a href="https://jeroomux.github.io/tanuki-leads" class="btn-cta-white" target="_blank">⚡ Try It Free Now →</a>
+  <p style="margin-top:16px;font-size:13px;opacity:.6">No credit card required • Free to try • Cancel anytime</p>
+</div>
+
+<footer>
+  <div class="footer-logo">🦝 Tanu<span>ki</span> Leads</div>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Tanuki Leads. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
